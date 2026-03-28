@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jessie Wang — The AI Product Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">JW</a>
+            <div class="nav-links">
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#impact" class="nav-link">Impact</a>
+                <a href="#leadership" class="nav-link">Leadership</a>
+                <a href="#community" class="nav-link">Community</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <div class="hero-portrait">
+                <div class="portrait-ring"></div>
+                <!-- Replace src with your photo path, e.g. assets/jessie-wang.jpg -->
+                <img src="assets/jessie-wang.jpg" alt="Jessie Wang" class="portrait-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="portrait-fallback" style="display:none;">JW</div>
+                <div class="portrait-glow"></div>
+            </div>
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Senior Consultant &rarr; Principal Consultant
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-line">Jessie</span>
+                <span class="hero-line hero-line-accent">Wang</span>
+            </h1>
+            <p class="hero-subtitle">AI Product Leader &middot; Programme Strategist &middot; Community Builder</p>
+            <p class="hero-desc">From AI intake consultant to product leadership across enterprise platforms, a 62-person GenAI Lab, and global enablement — in just over one year at Capco.</p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-number" data-target="62">0</span>
+                    <span class="stat-label">GenAI Lab Members</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="26">0</span>
+                    <span class="stat-label">Engineering Team</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Mentees</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-target="6">0</span>
+                    <span class="stat-label">Global Regions</span>
+                </div>
+            </div>
+            <a href="#journey" class="hero-scroll">
+                <span>Explore the story</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <section class="section section-dark" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Journey</span>
+                <h2 class="section-title">One Year. Transformative Growth.</h2>
+                <p class="section-desc">A timeline of impact, from day one to leading enterprise AI programmes.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Early 2025</span>
+                        <h3>Joined Capco</h3>
+                        <p>Started as an AI-intake consultant on the Jefferies account, supporting initial proof-of-concept work and AI use-case intake.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Mid 2025</span>
+                        <h3>Appointed JefAI Product Lead</h3>
+                        <p>Promoted from intake role to full Product Lead for Jefferies' AI platform. Took ownership of roadmap, stakeholder management, and programme delivery across C-level and ED-level stakeholders.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Late 2025</span>
+                        <h3>Scaled the US GenAI Lab 3&times;</h3>
+                        <p>Grew the Lab from ~15 people (7 active) to 62 members (28 active standup members). Established governance, guidelines, and onboarding to keep scaling smooth.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Late 2025</span>
+                        <h3>Founded Global GenAI Demo Day</h3>
+                        <p>Created the US Demo Day (bi-weekly), then scaled it globally across UK, Canada, Tax, Switzerland/Germany, Singapore, and India — turning it into an internal sales engine.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">January 2026</span>
+                        <h3>External Thought Leadership</h3>
+                        <p>Represented Capco on the AI Collective &times; La Cr&egrave;me de la STEM panel in Manhattan alongside speakers from Google and Neon&Slate — a major milestone for Capco's AI brand visibility.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2026</span>
+                        <h3>Building the AI PO/PM Capability</h3>
+                        <p>Grew Capco's first AI Product Owner/Manager team from 1 to 4, establishing the training, onboarding, and autonomous delivery practices for a scalable product function.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements - Card Grid -->
+    <section class="section" id="achievements">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Key Achievements</span>
+                <h2 class="section-title">Five Pillars of Impact</h2>
+                <p class="section-desc">Each achievement represents a distinct dimension of leadership — from client delivery to community building.</p>
+            </div>
+            <div class="achievement-grid">
+                <!-- Card 1 -->
+                <div class="achievement-card card-large" data-animate>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="card-number">01</div>
+                    <h3>Jefferies JefAI Product Leadership</h3>
+                    <p>Full product ownership of Jefferies' enterprise AI platform — roadmap, stakeholder engagement across MP/ED/C-level, and programme delivery for an engineering org of ~26 people.</p>
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <span class="detail-label">From</span>
+                            <span class="detail-value">AI Intake Consultant</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">To</span>
+                            <span class="detail-value">Appointed Product Lead</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Contract</span>
+                            <span class="detail-value">Extended to Full Year</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Team</span>
+                            <span class="detail-value">~26 Engineers + 2 Direct Reports</span>
+                        </div>
+                    </div>
+                    <ul class="card-highlights">
+                        <li>Created Jefferies' first AI product roadmap</li>
+                        <li>Designed the JefAI programme dashboard for roadmap visibility, progress & KPIs</li>
+                        <li>Moved Jefferies from intake/proof phase to sustained product programme</li>
+                        <li>Converted initial engagement into year-long product engagement</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="achievement-card" data-animate>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <div class="card-number">02</div>
+                    <h3>US GenAI Lab — 3&times; Scale</h3>
+                    <p>Led the operational transformation of the US GenAI Lab through its most significant growth period.</p>
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Before</span>
+                            <span class="detail-value">~15 people (7 active)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">After</span>
+                            <span class="detail-value">62 people (28 active)</span>
+                        </div>
+                    </div>
+                    <ul class="card-highlights">
+                        <li>Established governance &amp; management calls</li>
+                        <li>Wrote Lab guidelines &amp; membership process</li>
+                        <li>Conducted membership interviews</li>
+                        <li>Senior Lab lead alongside Chinmoy &amp; Poorna</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="achievement-card" data-animate>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    </div>
+                    <div class="card-number">03</div>
+                    <h3>Global GenAI Demo Day</h3>
+                    <p>Founded and scaled from a US bi-weekly into a global showcase spanning 6 regions.</p>
+                    <div class="card-regions">
+                        <span class="region-tag">US</span>
+                        <span class="region-tag">UK</span>
+                        <span class="region-tag">Canada</span>
+                        <span class="region-tag">Switzerland</span>
+                        <span class="region-tag">Singapore</span>
+                        <span class="region-tag">India</span>
+                    </div>
+                    <ul class="card-highlights">
+                        <li>Evolved from tech forum to internal sales tool</li>
+                        <li>Demo assets converted to repeatable sales collateral</li>
+                        <li>Accelerates pursuits &amp; account conversations</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="achievement-card" data-animate>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <div class="card-number">04</div>
+                    <h3>AI PO/PM Capability</h3>
+                    <p>Built Capco's first dedicated AI Product Owner / Product Manager team from scratch.</p>
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Team Growth</span>
+                            <span class="detail-value">1 &rarr; 4 members</span>
+                        </div>
+                    </div>
+                    <ul class="card-highlights">
+                        <li>Established onboarding &amp; training framework</li>
+                        <li>Junior PO/PMs now run delivery autonomously</li>
+                        <li>Launched AI&times;Cyber collaboration with COO</li>
+                        <li>Cross-domain partner initiatives for marketable AI</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="achievement-card" data-animate>
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/></svg>
+                    </div>
+                    <div class="card-number">05</div>
+                    <h3>Thought Leadership &amp; Mentoring</h3>
+                    <p>External speaking, internal enablement, and growing the next generation of AI talent.</p>
+                    <ul class="card-highlights">
+                        <li>Panelist: AI Collective &times; La Cr&egrave;me de la STEM (Manhattan, Jan 2026)</li>
+                        <li>Alongside speakers from Google &amp; Neon&amp;Slate</li>
+                        <li>5 active mentees across the organisation</li>
+                        <li>AI Ambassador on L&amp;D Lunch &amp; Learns</li>
+                        <li>Regular speaker on Jefferies AI Ambassadors call</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Numbers -->
+    <section class="section section-accent" id="impact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">By The Numbers</span>
+                <h2 class="section-title">Measurable Impact</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card" data-animate>
+                    <div class="impact-icon-ring">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+                    </div>
+                    <span class="impact-number" data-target="15">0</span>
+                    <span class="impact-arrow">&rarr;</span>
+                    <span class="impact-number impact-number-highlight" data-target="62">0</span>
+                    <span class="impact-label">GenAI Lab Growth</span>
+                    <span class="impact-sublabel">3&times; scale in under a year</span>
+                </div>
+                <div class="impact-card" data-animate>
+                    <div class="impact-icon-ring">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    </div>
+                    <span class="impact-number impact-number-highlight" data-target="26">0</span>
+                    <span class="impact-label">Engineers in JefAI Org</span>
+                    <span class="impact-sublabel">Product leadership at enterprise scale</span>
+                </div>
+                <div class="impact-card" data-animate>
+                    <div class="impact-icon-ring">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    </div>
+                    <span class="impact-number impact-number-highlight" data-target="6">0</span>
+                    <span class="impact-label">Global Regions</span>
+                    <span class="impact-sublabel">Demo Day spans continents</span>
+                </div>
+                <div class="impact-card" data-animate>
+                    <div class="impact-icon-ring">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    </div>
+                    <span class="impact-number impact-number-highlight" data-target="5">0</span>
+                    <span class="impact-label">Mentees</span>
+                    <span class="impact-sublabel">Growing the next generation</span>
+                </div>
+                <div class="impact-card" data-animate>
+                    <div class="impact-icon-ring">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <span class="impact-number" data-target="1">0</span>
+                    <span class="impact-arrow">&rarr;</span>
+                    <span class="impact-number impact-number-highlight" data-target="4">0</span>
+                    <span class="impact-label">AI PO/PM Team</span>
+                    <span class="impact-sublabel">Built from scratch</span>
+                </div>
+                <div class="impact-card" data-animate>
+                    <div class="impact-icon-ring">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                    </div>
+                    <span class="impact-number impact-number-highlight" data-target="1">0</span>
+                    <span class="impact-label">Year at Capco</span>
+                    <span class="impact-sublabel">Just over one year of impact</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Philosophy -->
+    <section class="section section-dark" id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Leadership</span>
+                <h2 class="section-title">Three Priorities, One Mission</h2>
+                <p class="section-desc">Jessie splits her time across three strategic priorities that drive Capco's AI capability forward.</p>
+            </div>
+            <div class="pillars">
+                <div class="pillar" data-animate>
+                    <div class="pillar-number">I</div>
+                    <h3>Operating &amp; Scaling the GenAI Lab</h3>
+                    <p>Building the governance, culture, and operational muscle to grow a high-performing AI lab from 15 to 62+ members — with the systems to keep everyone productive and aligned.</p>
+                    <div class="pillar-tags">
+                        <span>Governance</span>
+                        <span>Scaling</span>
+                        <span>Operations</span>
+                    </div>
+                </div>
+                <div class="pillar" data-animate>
+                    <div class="pillar-number">II</div>
+                    <h3>Product-Owning Client AI Platforms</h3>
+                    <p>Driving product strategy and delivery for enterprise AI platforms like JefAI — from roadmap creation to C-level stakeholder management and hands-on programme execution.</p>
+                    <div class="pillar-tags">
+                        <span>Product Strategy</span>
+                        <span>Client Delivery</span>
+                        <span>Stakeholder Mgmt</span>
+                    </div>
+                </div>
+                <div class="pillar" data-animate>
+                    <div class="pillar-number">III</div>
+                    <h3>AI Commercial &amp; Enablement Capability</h3>
+                    <p>Creating the internal tools, demos, training, and thought leadership that accelerate Capco's AI pursuits and empower teams across domains to deliver AI value.</p>
+                    <div class="pillar-tags">
+                        <span>Demo Day</span>
+                        <span>PO/PM Team</span>
+                        <span>Thought Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial Impact -->
+    <section class="section" id="commercial">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Commercial Value</span>
+                <h2 class="section-title">Driving Revenue &amp; Growth</h2>
+                <p class="section-desc">Beyond delivery — direct contributions to Capco's commercial success and market positioning.</p>
+            </div>
+            <div class="commercial-grid">
+                <div class="commercial-card" data-animate>
+                    <div class="commercial-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    </div>
+                    <h4>Year-Long Product Engagement</h4>
+                    <p>Converted Jefferies from an initial AI intake/proof phase into a <strong>year-long product engagement</strong>, directly supporting continued revenue on the account.</p>
+                </div>
+                <div class="commercial-card" data-animate>
+                    <div class="commercial-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    </div>
+                    <h4>Scope Expansion</h4>
+                    <p>By leading the JefAI roadmap and enterprise product direction, creating scope for <strong>additional AI platform work and future solution expansion</strong> at Jefferies.</p>
+                </div>
+                <div class="commercial-card" data-animate>
+                    <div class="commercial-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                    </div>
+                    <h4>Sales-Ready Collateral</h4>
+                    <p>Turned AI demos and storytelling into <strong>repeatable, market-facing assets</strong> that support pursuits, stakeholder buy-in, and downstream sales opportunities.</p>
+                </div>
+                <div class="commercial-card" data-animate>
+                    <div class="commercial-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h4>Brand &amp; Pipeline</h4>
+                    <p>External thought leadership and Global Demo Day fuel <strong>pursuit conversations, brand credibility, and new pipeline opportunities</strong> for Capco in GenAI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section section-dark" id="community">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Community &amp; Enablement</span>
+                <h2 class="section-title">Beyond the Day Job</h2>
+                <p class="section-desc">Building community, mentoring talent, and representing Capco on the global stage.</p>
+            </div>
+            <div class="community-layout">
+                <div class="community-main" data-animate>
+                    <div class="spotlight-card">
+                        <div class="spotlight-badge">Spotlight</div>
+                        <h3>AI Collective &times; La Cr&egrave;me de la STEM Panel</h3>
+                        <p class="spotlight-meta">Manhattan &middot; January 28, 2026 &middot; 6:00&ndash;8:00 PM ET</p>
+                        <p>Jessie represented Capco at a high-profile external panel on enterprise GenAI adoption, sharing perspectives alongside <strong>Stephanie Gervasi, PhD</strong> (Google), <strong>Charlotte Hausemer</strong> (Neon&amp;Slate), moderated by <strong>Marion Siboni</strong> (La Cr&egrave;me de la STEM).</p>
+                        <blockquote class="spotlight-quote">
+                            "I will forever mark 01/28/2026 as my first real step into 'doing more.' More than just responsibility. More than just work. More contribution, more community, more connection."
+                            <cite>— Jessie Wang</cite>
+                        </blockquote>
+                        <p>This event was about more than speaking on stage — it marked a personal milestone in Jessie's journey from builder to leader, from executing solutions to shaping the conversation around enterprise AI.</p>
+                    </div>
+                </div>
+                <div class="community-sidebar">
+                    <div class="community-item" data-animate>
+                        <h4>Global Demo Day Founder</h4>
+                        <p>Created and coordinated Capco's cross-region AI showcase, transforming technical demos into commercial opportunities across 6 global regions.</p>
+                    </div>
+                    <div class="community-item" data-animate>
+                        <h4>US GenAI Lab Scaling</h4>
+                        <p>Founded the US Demo Day (bi-weekly), scaled it globally, and built the operational infrastructure to support rapid Lab growth.</p>
+                    </div>
+                    <div class="community-item" data-animate>
+                        <h4>Mentoring &amp; L&amp;D</h4>
+                        <p>5 active mentees, regular AI Ambassador on L&amp;D Lunch &amp; Learns, and enablement sessions for both technical and non-technical audiences.</p>
+                    </div>
+                    <div class="community-item" data-animate>
+                        <h4>AI PO/PM Proteg&eacute;s</h4>
+                        <p>Mentoring the next generation of AI product leaders through hands-on coaching, training frameworks, and progressive autonomy in delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forward Look -->
+    <section class="section section-gradient" id="forward">
+        <div class="container">
+            <div class="forward-content" data-animate>
+                <span class="section-tag">What's Next</span>
+                <h2 class="section-title">The Path Forward</h2>
+                <div class="forward-grid">
+                    <div class="forward-item">
+                        <div class="forward-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h4>Enterprise AI Ecosystem</h4>
+                        <p>Expanding JefAI from a roadmap-led platform into a broader enterprise AI product ecosystem — scaling adoption and solution maturity.</p>
+                    </div>
+                    <div class="forward-item">
+                        <div class="forward-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h4>AI Lead Trajectory</h4>
+                        <p>Becoming the AI lead across the broader Jefferies AI programme, overseeing multiple AI workstreams built from the ground up.</p>
+                    </div>
+                    <div class="forward-item">
+                        <div class="forward-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                        </div>
+                        <h4>Commercial Value at Scale</h4>
+                        <p>Deepening the Jefferies platform opportunity, expanding account revenue, and building reusable AI assets that drive new commercial conversations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-name">Jessie Wang</span>
+                    <span class="footer-role">AI Product Lead &middot; Capco</span>
+                </div>
+                <p class="footer-tagline">Strategy. AI. Design. Innovation.</p>
+                <div class="footer-domains">
+                    <span>Cross Domain</span>
+                    <span>&middot;</span>
+                    <span>AI Product</span>
+                    <span>&middot;</span>
+                    <span>Program &amp; Commercial Enablement</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
