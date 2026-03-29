@@ -300,7 +300,7 @@ body:hover .cursor-glow {
 }
 .hero-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
     margin-bottom: 3rem;
     animation: fadeInUp 0.8s var(--ease-out) 0.5s both;
@@ -413,6 +413,48 @@ body:hover .cursor-glow {
 }
 
 /* ---- Timeline ---- */
+.timeline-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.legend-core { background: #4da6ff; }
+.legend-community { background: var(--color-accent); }
+.legend-commercial { background: var(--color-gold); }
+.timeline-dot-core { border-color: #4da6ff !important; }
+.timeline-dot-community { border-color: var(--color-accent) !important; }
+.timeline-dot-commercial { border-color: var(--color-gold) !important; }
+.timeline-item:hover .timeline-dot-core { background: #4da6ff !important; box-shadow: 0 0 20px rgba(77,166,255,0.4) !important; }
+.timeline-item:hover .timeline-dot-community { background: var(--color-accent) !important; box-shadow: 0 0 20px rgba(0,191,166,0.4) !important; }
+.timeline-item:hover .timeline-dot-commercial { background: var(--color-gold) !important; box-shadow: 0 0 20px rgba(240,192,64,0.4) !important; }
+.timeline-category {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+    margin-right: 0.5rem;
+}
+.cat-core { background: rgba(77,166,255,0.15); color: #4da6ff; }
+.cat-community { background: var(--color-accent-glow); color: var(--color-accent-light); }
+.cat-commercial { background: rgba(240,192,64,0.1); color: var(--color-gold); }
 .timeline {
     position: relative;
     max-width: 700px;
@@ -785,6 +827,17 @@ body:hover .cursor-glow {
 }
 
 /* ---- Community Layout ---- */
+.community-spotlight {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s var(--ease-out);
+}
+.community-spotlight.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 .community-layout {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
