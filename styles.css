@@ -969,6 +969,123 @@ body:hover .cursor-glow {
     line-height: 1.7;
 }
 
+/* ---- Dream Section ---- */
+.section-tag-gold {
+    color: var(--color-gold);
+    background: rgba(240,192,64,0.1);
+    border-color: rgba(240,192,64,0.2);
+}
+.dream-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s var(--ease-out);
+}
+.dream-layout.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.dream-illustration {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.dream-illustration:hover {
+    border-color: rgba(0,191,166,0.2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.dream-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.dream-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
+}
+.dream-tagline {
+    font-size: 1rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 1.25rem;
+}
+.dream-content > p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+.dream-content strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+.dream-uses {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.dream-use {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    padding: 1rem;
+}
+.dream-use-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dream-use-internal {
+    background: var(--color-accent-glow);
+    color: var(--color-accent);
+}
+.dream-use-external {
+    background: rgba(240,192,64,0.1);
+    color: var(--color-gold);
+}
+.dream-use strong {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+}
+.dream-use p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+.dream-closing {
+    color: var(--color-text-dim);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+.dream-closing em {
+    color: var(--color-accent);
+    font-style: italic;
+}
+@media (max-width: 900px) {
+    .dream-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ---- Footer ---- */
 .footer {
     padding: 3rem 0;
