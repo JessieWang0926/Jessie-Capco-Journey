@@ -514,6 +514,22 @@ body:hover .cursor-glow {
     font-size: 0.95rem;
     line-height: 1.7;
 }
+.timeline-sub {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.timeline-sub h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0.4rem;
+}
+.timeline-sub p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
 
 /* ---- Achievement Cards ---- */
 .achievement-grid {
