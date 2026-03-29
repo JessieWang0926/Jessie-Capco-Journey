@@ -334,6 +334,15 @@ body:hover .cursor-glow {
     letter-spacing: 0.08em;
     font-weight: 500;
 }
+.stat-context {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--color-text-dim);
+    margin-top: 0.25rem;
+    font-style: italic;
+    letter-spacing: 0;
+    text-transform: none;
+}
 .hero-scroll {
     display: inline-flex;
     align-items: center;
