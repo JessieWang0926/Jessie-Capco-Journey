@@ -853,6 +853,26 @@ body:hover .cursor-glow {
     font-size: 0.85rem;
     color: var(--color-accent);
 }
+.panel-event-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.panel-event-images img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease;
+}
+.panel-event-images img:hover {
+    transform: scale(1.02);
+}
+@media (max-width: 600px) {
+    .panel-event-images {
+        grid-template-columns: 1fr;
+    }
+}
 .community-sidebar {
     display: flex;
     flex-direction: column;
