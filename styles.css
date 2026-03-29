@@ -819,6 +819,21 @@ body:hover .cursor-glow {
     line-height: 1.7;
     margin-bottom: 1rem;
 }
+.panel-event-image {
+    margin: 1.5rem 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,191,166,0.15);
+}
+.panel-event-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.panel-event-image:hover img {
+    transform: scale(1.02);
+}
 .spotlight-quote {
     border-left: 3px solid var(--color-accent);
     padding: 1rem 1.5rem;
