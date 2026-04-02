@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessie Wang — Capco Profit Model &amp; AI Impact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #0a0a0f;
+    --bg-light: #12121a;
+    --bg-card: #16161f;
+    --surface: #1e1e2a;
+    --border: rgba(255,255,255,0.06);
+    --text: #e8e8ed;
+    --text-muted: #8888a0;
+    --text-dim: #55556a;
+    --accent: #00bfa6;
+    --accent-light: #00e6c8;
+    --accent-glow: rgba(0,191,166,0.15);
+    --gold: #f0c040;
+    --red: #ff6b6b;
+    --blue: #4da6ff;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; scroll-behavior:smooth; scroll-snap-type: y mandatory; }
+body {
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Slide Container ---- */
+.slide {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+    padding: 3rem 2rem;
+}
+.slide-inner {
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* ---- Background Effects ---- */
+.bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+}
+.bg-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    z-index: 0;
+    opacity: 0.5;
+}
+.bg-glow-tl { top: -200px; left: -200px; }
+.bg-glow-br { bottom: -200px; right: -200px; }
+.bg-glow-center { top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.bg-glow-gold {
+    background: radial-gradient(circle, rgba(240,192,64,0.08) 0%, transparent 70%);
+}
+
+/* ---- Cover Slide ---- */
+.cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0,191,166,0.1);
+    border: 1px solid rgba(0,191,166,0.2);
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+.cover-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+.cover-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+.cover-title .accent { color: var(--accent); }
+.cover-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+}
+.cover-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.cover-meta-item {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+.cover-meta-item strong {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* ---- Section Tags ---- */
+.slide-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.slide-tag::before {
+    content: '';
+    width: 20px; height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+}
+
+.slide-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+.slide-title .accent { color: var(--accent); }
+.slide-title .gold { color: var(--gold); }
+
+/* ---- Profit Model Slide ---- */
+.profit-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.flow-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    position: relative;
+    transition: border-color 0.3s;
+}
+.flow-step:hover { border-color: rgba(0,191,166,0.3); }
+.flow-step-num {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(0,191,166,0.1);
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    display: inline-block;
+    margin-bottom: 0.6rem;
+}
+.flow-step h3 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.flow-step p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+.flow-arrow {
+    display: none;
+}
+
+/* ---- Margin Formula ---- */
+.formula-bar {
+    background: var(--bg-card);
+    border: 1px solid rgba(0,191,166,0.15);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+.formula-item {
+    text-align: center;
+}
+.formula-item .label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    margin-bottom: 0.2rem;
+}
+.formula-item .value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.formula-item .value.green { color: var(--accent); }
+.formula-item .value.gold { color: var(--gold); }
+.formula-item .value.red { color: var(--red); }
+.formula-op {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--text-dim);
+    font-weight: 300;
+}
+
+/* ---- Breakdown Section ---- */
+.breakdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+.breakdown-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    border-left: 3px solid var(--red);
+}
+.breakdown-card.insight {
+    border-left-color: var(--gold);
+}
+.breakdown-card h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.breakdown-card h4 .icon {
+    font-size: 1rem;
+}
+.breakdown-card p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+.breakdown-card ul {
+    list-style: none;
+    padding: 0;
+}
+.breakdown-card li {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    padding-left: 1rem;
+    position: relative;
+    margin-bottom: 0.3rem;
+}
+.breakdown-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--text-dim);
+}
+
+/* ---- Jessie Insight Callout ---- */
+.insight-callout {
+    background: linear-gradient(135deg, rgba(0,191,166,0.06), rgba(240,192,64,0.04));
+    border: 1px solid rgba(0,191,166,0.15);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+.insight-callout .icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+.insight-callout .content h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+}
+.insight-callout .content p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ---- AI Slide ---- */
+.ai-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.ai-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.3rem;
+    transition: border-color 0.3s, transform 0.3s;
+}
+.ai-card:hover {
+    border-color: rgba(0,191,166,0.3);
+    transform: translateY(-2px);
+}
+.ai-card-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+}
+.ai-card h3 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+.ai-card .tool-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    background: rgba(0,191,166,0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+.ai-card p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+.ai-card .outcome {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* ---- Impact Banner ---- */
+.impact-banner {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+.impact-stat .number {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+.impact-stat .label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 0.2rem;
+}
+
+/* ---- Slide Navigation ---- */
+.slide-nav {
+    position: fixed;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    z-index: 100;
+}
+.slide-nav a {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    transition: background 0.3s, transform 0.3s;
+    display: block;
+}
+.slide-nav a:hover,
+.slide-nav a.active {
+    background: var(--accent);
+    transform: scale(1.3);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .profit-flow { grid-template-columns: repeat(2, 1fr); }
+    .ai-grid { grid-template-columns: repeat(2, 1fr); }
+    .breakdown-grid { grid-template-columns: 1fr; }
+    .impact-banner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .slide { padding: 2rem 1rem; }
+    .profit-flow { grid-template-columns: 1fr; }
+    .ai-grid { grid-template-columns: 1fr; }
+    .formula-bar { flex-direction: column; gap: 0.5rem; }
+    .impact-banner { grid-template-columns: 1fr; }
+    .cover-meta { flex-direction: column; gap: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Slide Navigation Dots -->
+<nav class="slide-nav">
+    <a href="#cover" title="Cover"></a>
+    <a href="#profit" title="Profit Model"></a>
+    <a href="#ai" title="AI Impact"></a>
+</nav>
+
+<!-- ============================================
+     SLIDE 0: COVER
+     ============================================ -->
+<section class="slide" id="cover">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-tl"></div>
+    <div class="bg-glow bg-glow-br bg-glow-gold"></div>
+    <div class="slide-inner">
+        <div class="cover-badge">
+            <span class="dot"></span>
+            Promotion Case &mdash; Supplemental Slides
+        </div>
+        <h1 class="cover-title">
+            Understanding Capco's<br>
+            <span class="accent">Profit Model</span> &amp;<br>
+            AI-Driven <span class="accent">Impact</span>
+        </h1>
+        <p class="cover-subtitle">
+            How Capco turns engagements into profit &mdash; and how I leverage AI daily to deliver better client outcomes, accelerate delivery, and drive business development.
+        </p>
+        <div class="cover-meta">
+            <div class="cover-meta-item"><strong>Jessie Wang</strong> &middot; Senior Consultant</div>
+            <div class="cover-meta-item"><strong>Client:</strong> Jefferies &mdash; JefAI Program</div>
+            <div class="cover-meta-item"><strong>Role:</strong> AI Product &amp; Delivery Lead</div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SLIDE 1: CAPCO PROFIT MODEL
+     ============================================ -->
+<section class="slide" id="profit" style="background: var(--bg-light);">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-center"></div>
+    <div class="slide-inner">
+        <div class="slide-tag">Business Acumen</div>
+        <h2 class="slide-title">How Capco Makes Profit &mdash; and Where the <span class="gold">Model Breaks Down</span></h2>
+
+        <!-- Flow: Sales to Profit -->
+        <div class="profit-flow">
+            <div class="flow-step">
+                <span class="flow-step-num">01</span>
+                <h3>Opportunity Identification</h3>
+                <p>Client need surfaces via RFP or proactive pitch. Assess: What does the client need? What is their budget, authority, and timeline?</p>
+            </div>
+            <div class="flow-step">
+                <span class="flow-step-num">02</span>
+                <h3>Shaping &amp; Pricing</h3>
+                <p>Build the team pyramid (AO&rarr;Partner). Plug resources into the global pricing model: grade, location, bill rate, duration, holidays, PTO. Choose T&amp;M or Fixed Price.</p>
+            </div>
+            <div class="flow-step">
+                <span class="flow-step-num">03</span>
+                <h3>Revenue Generation</h3>
+                <p>Contract signed with TCV. Fixed Price = even monthly payments. T&amp;M = billable days &times; rate per month. Revenue recognized as team delivers.</p>
+            </div>
+            <div class="flow-step">
+                <span class="flow-step-num">04</span>
+                <h3>Profit = The Arbitrage</h3>
+                <p>Profit margin = gap between client bill rate and Capco's standard cost (salary + benefits). Target: <strong style="color:var(--accent);">50%+ margin</strong>. Lower grades = higher margin.</p>
+            </div>
+        </div>
+
+        <!-- Formula -->
+        <div class="formula-bar">
+            <div class="formula-item">
+                <div class="label">Client Bill Rate</div>
+                <div class="value green">$X / day</div>
+            </div>
+            <span class="formula-op">&minus;</span>
+            <div class="formula-item">
+                <div class="label">Capco Standard Cost</div>
+                <div class="value gold">$Y / day</div>
+            </div>
+            <span class="formula-op">=</span>
+            <div class="formula-item">
+                <div class="label">Project Margin (Profit)</div>
+                <div class="value green">$X &minus; $Y</div>
+            </div>
+            <span class="formula-op" style="margin-left:1rem;">|</span>
+            <div class="formula-item">
+                <div class="label">Margin compresses at</div>
+                <div class="value red">senior grades</div>
+            </div>
+        </div>
+
+        <!-- Where the model breaks down -->
+        <div class="breakdown-grid">
+            <div class="breakdown-card">
+                <h4><span class="icon">&#9888;</span> Revenue Leakage</h4>
+                <ul>
+                    <li>Approved budget left un-billed because team worked fewer days than planned (sick days, excess PTO)</li>
+                    <li>Client refuses milestone payments due to deliverable disputes</li>
+                    <li>T&amp;M engagements under-tracked on timesheets</li>
+                </ul>
+            </div>
+            <div class="breakdown-card">
+                <h4><span class="icon">&#9888;</span> Scope &amp; Effort Overruns</h4>
+                <ul>
+                    <li>Delivery takes more hours than priced &mdash; bugs, complexity, rework consume the buffer</li>
+                    <li>Fixed price contracts absorb the extra cost, eroding margin</li>
+                    <li>Insufficient buffer / contingency in original pricing model</li>
+                </ul>
+            </div>
+            <div class="breakdown-card insight">
+                <h4><span class="icon">&#128200;</span> Market Pressure</h4>
+                <ul>
+                    <li>Competitors willing to price lower &mdash; forces Capco to drop bill rates</li>
+                    <li>Clients paying less for resource augmentation work</li>
+                    <li>Margins compressed over last 2&ndash;5 years industry-wide</li>
+                </ul>
+            </div>
+            <div class="breakdown-card insight">
+                <h4><span class="icon">&#128200;</span> Utilization &amp; Bench Cost</h4>
+                <ul>
+                    <li>Senior resources (PC/MP/ED) split across projects at part-time allocation to stay off bench</li>
+                    <li>Investment-rate staffing to protect relationships &mdash; Capco absorbs cost for strategic value</li>
+                    <li>Bench time = cost with zero revenue offset</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Jessie's POV callout -->
+        <div class="insight-callout">
+            <span class="icon">&#128161;</span>
+            <div class="content">
+                <h4>My View as an SC Leading an AI Program at Jefferies</h4>
+                <p>I operate above my level daily &mdash; leading a 26-person engineering team, owning the JefAI roadmap, and presenting to C-level stakeholders. The pricing model breaks down here: Capco bills me at SC rate while the work I deliver is PC/MP-level scope and responsibility. This is both a promotion signal and a commercial opportunity &mdash; billing at the appropriate grade would better reflect the value delivered and improve revenue per engagement, turning my impact into margin upside for Capco.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     SLIDE 2: AI IN ACTION
+     ============================================ -->
+<section class="slide" id="ai">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-tl bg-glow-gold"></div>
+    <div class="bg-glow bg-glow-br"></div>
+    <div class="slide-inner">
+        <div class="slide-tag">AI-Powered Delivery</div>
+        <h2 class="slide-title">How I Use AI to Deliver <span class="accent">Better Outcomes</span> &amp; Drive <span class="gold">Business Development</span></h2>
+
+        <div class="ai-grid">
+            <div class="ai-card">
+                <div class="ai-card-icon">&#9889;</div>
+                <span class="tool-tag">Lovable &middot; Figma &middot; Claude</span>
+                <h3>Mockup to Interactive Prototype</h3>
+                <p>Rapidly transform concepts into clickable, interactive prototypes to gather stakeholder feedback before a single line of production code is written. Eliminates costly misalignment.</p>
+                <div class="outcome">&#8594; Weeks of dev time saved per feature cycle</div>
+            </div>
+            <div class="ai-card">
+                <div class="ai-card-icon">&#128187;</div>
+                <span class="tool-tag">Claude Code &middot; Codex</span>
+                <h3>Full-Stack AI-Assisted Development</h3>
+                <p>Built the entire Jefferies AI Program Dashboard using Claude Code &mdash; a C-level reporting tool that surfaces project health, delivery tracking, and program-wide metrics in one place.</p>
+                <div class="outcome">&#8594; Information transparency for leadership &amp; teams</div>
+            </div>
+            <div class="ai-card">
+                <div class="ai-card-icon">&#127911;</div>
+                <span class="tool-tag">NotebookLM Podcast</span>
+                <h3>Staying on the AI Frontier</h3>
+                <p>Use LLM-generated podcast briefings to stay current on the latest AI developments &mdash; bringing cutting-edge insights to clients and aligning them with the JefAI roadmap.</p>
+                <div class="outcome">&#8594; Client always gets latest AI strategy guidance</div>
+            </div>
+            <div class="ai-card">
+                <div class="ai-card-icon">&#128640;</div>
+                <span class="tool-tag">Internal Capco Use</span>
+                <h3>Codex &amp; AI Tooling Internally</h3>
+                <p>Champion AI adoption within Capco &mdash; using Codex and Claude for internal projects, accelerating delivery velocity, and demonstrating ROI to encourage firm-wide adoption.</p>
+                <div class="outcome">&#8594; Leading by example across the firm</div>
+            </div>
+            <div class="ai-card">
+                <div class="ai-card-icon">&#128202;</div>
+                <span class="tool-tag">Claude Code</span>
+                <h3>C-Level Reporting &amp; Clarity</h3>
+                <p>AI-built dashboards bring information transparency to everyone &mdash; from individual contributors to CTO. Better project delivery tracking, clearer communication, faster decisions.</p>
+                <div class="outcome">&#8594; Clarity &amp; alignment across all stakeholders</div>
+            </div>
+            <div class="ai-card">
+                <div class="ai-card-icon">&#127758;</div>
+                <span class="tool-tag">End-to-End AI Workflow</span>
+                <h3>The Full Picture</h3>
+                <p>From ideation to prototype to production &mdash; AI is embedded in every phase. This isn't experimentation; it's a proven delivery model that saves time, reduces cost, and improves quality.</p>
+                <div class="outcome">&#8594; AI as a force multiplier, not a buzzword</div>
+            </div>
+        </div>
+
+        <!-- Impact stats -->
+        <div class="impact-banner">
+            <div class="impact-stat">
+                <span class="number">10x</span>
+                <span class="label">Faster Prototyping</span>
+            </div>
+            <div class="impact-stat">
+                <span class="number">26</span>
+                <span class="label">Engineering Team Led</span>
+            </div>
+            <div class="impact-stat">
+                <span class="number">100%</span>
+                <span class="label">AI-Built Dashboard</span>
+            </div>
+            <div class="impact-stat">
+                <span class="number">C-Suite</span>
+                <span class="label">Stakeholder Visibility</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Nav dot active state
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.slide-nav a');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            dots.forEach(d => d.classList.remove('active'));
+            const idx = [...slides].indexOf(e.target);
+            if (dots[idx]) dots[idx].classList.add('active');
+        }
+    });
+}, { threshold: 0.5 });
+slides.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
